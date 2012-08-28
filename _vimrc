@@ -264,6 +264,7 @@ nmap <silent> ,gs :vimgrep /<C-r>// %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 " Search the current file for the word under the cursor and display matches
 nmap <silent> ,gw :vimgrep /<C-r><C-w>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 
+
 " Search the current file for the WORD under the cursor and display matches
 nmap <silent> ,gW :vimgrep /<C-r><C-a>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 
@@ -272,6 +273,22 @@ nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
 " Toggle fullscreen mode
 nmap <silent> <F3> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
+"Alpha Window
+
+map <leader>aw :call libcallnr("vimtweak.dll","SetAlpha",200)<cr>
+map <leader>aW :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
+
+"Maximized Window
+
+map <leader>mw :call libcallnr("vimtweak.dll","EnableMaximize",1)<cr>
+map <leader>mW :call libcallnr("vimtweak.dll","EnableMaximize",0)<cr>
+
+"TopMost Window
+
+map <leader>et :call libcallnr("vimtweak.dll","EnableTopMost",1)<cr>
+map <leader>eT :call libcallnr("vimtweak.dll","EnableTopMost",0)<cr>
+
 
 " Underline the current line with '='
 nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>
