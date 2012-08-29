@@ -2,6 +2,8 @@
 
 ## Installation
 
+### copy
+
 * `vim73/gvimfullscreen.dll` # for fullscreen on windows
 * `vim73/vimtweak.dll` # for background transparent
 * `_vimrc file`
