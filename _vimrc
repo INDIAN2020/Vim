@@ -1,5 +1,5 @@
 "
-" xuechenwe's Vim 
+" xuechenwe's Vim
 "
 " It's got stuff in it.
 "
@@ -71,7 +71,7 @@ set hidden
 
 " Make the 'cw' and like commands put a $ at the end instead of just deleting
 " the text and replacing it
-set cpoptions=aABceFs
+"set cpoptions=ces$
 
 " Set the status line the way i like it
 set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
@@ -799,3 +799,21 @@ if has("gui_running")
   endif
 endif
 :nohls
+
+
+"-----------------------------------------------------------------------------
+" Comment shortcuts
+"-----------------------------------------------------------------------------
+map <leader>c <c-_><c-_>
+
+
+"Shortcut for editing  vimrc file in a new tab
+nmap <leader>ev :tabedit $MYVIMRC<cr>
+
+
+"Indent stuff
+set smartindent
+
+
+"Map a change directory to the desktop - Mac specific
+nmap ,d :cd C:/Documents and Settings/Administrator/Desktop<cr>:e.<cr>
