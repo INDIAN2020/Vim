@@ -371,8 +371,8 @@ let loaded_matchparen = 1
 
 " Highlight the current line and column
 " Don't do this - It makes window redraws painfully slow
-set nocursorline
-set nocursorcolumn
+set cursorline
+set cursorcolumn
 
 if has("mac")
   let g:main_font = "Anonymous\\ Pro:h16"
