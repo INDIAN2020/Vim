@@ -209,7 +209,6 @@ map! <S-Insert> <MiddleMouse>
 nmap <silent> ,ww :set invwrap<CR>:set wrap?<CR>
 
 " allow command line editing like emacs
-cnoremap <C-A>      <Home>
 cnoremap <C-B>      <Left>
 cnoremap <C-E>      <End>
 cnoremap <C-F>      <Right>
@@ -266,7 +265,10 @@ nmap <silent> ,gw :vimgrep /<C-r><C-w>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 
 
 " Search the current file for the WORD under the cursor and display matches
-nmap <silent> ,gW :vimgrep /<C-r><C-a>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
+"nmap <silent> ,gW :vimgrep /<C-r><C-a>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
+ 
+" Ctrl+a select all
+noremap <C-A> gggH<C-O>G
 
 " Swap two words
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
