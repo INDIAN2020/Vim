@@ -374,7 +374,7 @@ let loaded_matchparen = 1
 " Highlight the current line and column
 " Don't do this - It makes window redraws painfully slow
 set cursorline
-set cursorcolumn
+""set cursorcolumn
 
 if has("mac")
   let g:main_font = "Anonymous\\ Pro:h16"
@@ -819,3 +819,24 @@ set smartindent
 
 "Map a change directory to the desktop - Mac specific
 nmap ,d :cd C:/Documents and Settings/Administrator/Desktop<cr>:e.<cr>
+
+" Modify zencoding shortcuts to ctrl+e 
+let g:user_zen_settings = { 
+  \  'indentation' : '  ', 
+  \  'perl' : { 
+  \    'aliases' : { 
+  \      'req' : 'require ' 
+  \    }, 
+  \    'snippets' : { 
+  \      'use' : "use strict\nuse warnings\n\n", 
+  \      'warn' : "warn \"|\";", 
+  \    } 
+  \  } 
+  \} 
+ 
+  let g:user_zen_expandabbr_key = '<c-e>'    "设置为ctrl+e展开
+ 
+  let g:use_zen_complete_tag = 1
+
+"Smarty file
+au BufRead,BufNewFile *.tpl set filetype=smarty
