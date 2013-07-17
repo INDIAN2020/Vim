@@ -13,7 +13,12 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-set shortmess=atI  "≤ªœ‘ æÀ˜¬Ì¿Ô∂˘ÕØ
+set shortmess=atI  "ÂêØÂä®Êó∂‰∏çÊòæÁ§∫Á¥¢È©¨ÈáåÂÑøÁ´•
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
+language messages zh_CN.utf-8
 
 "Forget compatibility with Vi. Who cares.
 set nocompatible
@@ -266,7 +271,7 @@ nmap <silent> ,gw :vimgrep /<C-r><C-w>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 
 " Search the current file for the WORD under the cursor and display matches
 "nmap <silent> ,gW :vimgrep /<C-r><C-a>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
- 
+
 " Ctrl+a select all
 noremap <C-A> gggH<C-O>G
 
@@ -347,15 +352,15 @@ imap <c-l><c-p> <c-k>p*
 imap <c-l><c-f> <c-k>f*
 
 function! ClearText(type, ...)
-	let sel_save = &selection
-	let &selection = "inclusive"
-	let reg_save = @@
-	if a:0 " Invoked from Visual mode, use '< and '> marks
-		silent exe "normal! '<" . a:type . "'>r w"
-	elseif a:type == 'line'
-		silent exe "normal! '[V']r w"
-	elseif a:type == 'line'
-		silent exe "normal! '[V']r w"
+  let sel_save = &selection
+  let &selection = "inclusive"
+  let reg_save = @@
+  if a:0 " Invoked from Visual mode, use '< and '> marks
+    silent exe "normal! '<" . a:type . "'>r w"
+  elseif a:type == 'line'
+    silent exe "normal! '[V']r w"
+  elseif a:type == 'line'
+    silent exe "normal! '[V']r w"
     elseif a:type == 'block'
       silent exe "normal! `[\<C-V>`]r w"
     else
@@ -612,24 +617,24 @@ endfunction
 :nmap ,hA :call HighlightAllOfWord(0)<cr>
 
 function! LengthenCWD()
-	let cwd = getcwd()
+  let cwd = getcwd()
     if cwd == '/'
         return
     endif
-	let lengthend = substitute(cwd, '/[^/]*$', '', '')
+  let lengthend = substitute(cwd, '/[^/]*$', '', '')
     if lengthend == ''
         let lengthend = '/'
     endif
     if cwd != lengthend
-	    exec ":lcd " . lengthend
-	endif
+      exec ":lcd " . lengthend
+  endif
 endfunction
 
 :nmap ,ld :call LengthenCWD()<cr>
 
 function! ShortenCWD()
-	let cwd = split(getcwd(), '/')
-	let filedir = split(expand("%:p:h"), '/')
+  let cwd = split(getcwd(), '/')
+  let filedir = split(expand("%:p:h"), '/')
     let i = 0
     let newdir = ""
     while i < len(filedir)
@@ -789,7 +794,7 @@ if has("gui_running")
   else
     set background=dark
   endif
-  colorscheme molokai
+  colorscheme solarized
   if !exists("g:vimrcloaded")
       winpos 0 0
       if !&diff
@@ -820,22 +825,22 @@ set smartindent
 "Map a change directory to the desktop - Mac specific
 nmap ,d :cd C:/Documents and Settings/Administrator/Desktop<cr>:e.<cr>
 
-" Modify zencoding shortcuts to ctrl+e 
-let g:user_zen_settings = { 
-  \  'indentation' : '  ', 
-  \  'perl' : { 
-  \    'aliases' : { 
-  \      'req' : 'require ' 
-  \    }, 
-  \    'snippets' : { 
-  \      'use' : "use strict\nuse warnings\n\n", 
-  \      'warn' : "warn \"|\";", 
-  \    } 
-  \  } 
-  \} 
- 
-  let g:user_zen_expandabbr_key = '<c-e>'    "…Ë÷√Œ™ctrl+e’πø™
- 
+" Modify zencoding shortcuts to ctrl+e
+let g:user_zen_settings = {
+  \  'indentation' : '  ',
+  \  'perl' : {
+  \    'aliases' : {
+  \      'req' : 'require '
+  \    },
+  \    'snippets' : {
+  \      'use' : "use strict\nuse warnings\n\n",
+  \      'warn' : "warn \"|\";",
+  \    }
+  \  }
+  \}
+
+  let g:user_zen_expandabbr_key = '<c-e>'    "ÔøΩÔøΩÔøΩÔøΩŒ™ctrl+e’πÔøΩÔøΩ
+
   let g:use_zen_complete_tag = 1
 
 "Smarty file
